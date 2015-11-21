@@ -12,6 +12,10 @@ import math
 import re
 import os
 
+recursor = dns.resolver.Resolver()
+recursor.timeout = recursor.lifetime
+
+
 '''
     THIS IS WHERE YOU SHOULD CONFIGURE YOUR scripts
 '''
@@ -28,10 +32,7 @@ recursor.lifetime = 5.0                                                         
     Do not change anything below unless you know what you are doing
 '''
 myDnsServers = list()
-recursor.timeout = recursor.lifetime
 responseTimes = dict()
-recursor = dns.resolver.Resolver()
-
 dns.resolver.override_system_resolver(recursor)
 
 ''' Reading /etc/resolv.conf and fethcing DNS configuration '''
