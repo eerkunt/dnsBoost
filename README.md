@@ -4,7 +4,7 @@ This is a **Python** script that is used to be in **Mac OSX Environment** to tes
 
 ## Requirements
 
-```dnsBoost``` requires ```dns.resolver``` Python modulesinstalled in your system ;
+```dnsBoost``` requires ```dns.resolver``` Python module installed in your system ;
 
 ## Installation
 
@@ -38,7 +38,7 @@ You should ( *depends* ) change first few lines of the script, given example as 
 
 ```python
 '''
-    THIS IS WHERE YOU SHOULD CONFIGURE YOUR scripts
+    THIS IS WHERE YOU SHOULD CONFIGURE YOUR SCRIPT
 '''
 serviceName = "Wi-Fi"                                                                   # This is Interface that you are using ( OSX )
 networkSetup = "/usr/sbin/networksetup"                                                 # Path to networksetup
