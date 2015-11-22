@@ -1,5 +1,7 @@
 # dnsBoost
 
+```This documentation is not up-to-date. Will be updated soon```
+
 This is a **Python** script that is used to be in **Mac OSX Environment** to test & change to the most robust DNS that are already defined in ```/etc/resolv.conf```
 
 ## Requirements
