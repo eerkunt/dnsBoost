@@ -38,10 +38,10 @@ logging.basicConfig(filename=logFile, filemode='a', level=logging.INFO, format='
 dnsObj = customDNS.DNS( "/etc/resolv.conf", dbFile, 1.0 )
 dnsObj.sweepDnsServers( queryList )
 dnsObj.updateScores()
-dnsObj.findTheBestScore()
+fastestDNS = dnsObj.findTheBestScore()
 
 if ( dnsObj.notifyLoggedInUser(username, reattachToUserNamespace, osaScript, appIcon, notificationSound) is True ):
-    logging.info(str(dnsObj.currentPreferredDNS)+" become the fastest DNS!")
+    logging.info(str(fastestDNS+" become the fastest DNS!")
     dnsObj.makeSystemWideChanges(networkSetup,serviceName)
 else:
     logging.info(str(dnsObj.currentPreferredDNS)+" is still the fastest DNS!")
