@@ -94,8 +94,9 @@ class DNS:
 
                 ''' In order to change a decision in 2 hours max, length of average array should be 24
                     Assuming that this script checks everything in every 5 minutes '''
-                if ( len(averageArray) > 24 ):
-                    averageArray = averageArray[1:len(averageArray)]
+                maxLength = 5
+                if ( len(averageArray) > maxLength ):
+                    averageArray = averageArray[(len(averageArray)-maxLength):len(averageArray)]
 
                 averageArray.append(responseTime)
                 # print "\tAverage Array : "+str(averageArray)
@@ -125,7 +126,7 @@ class DNS:
         def notifyLoggedInUser( self, username, reattachToUserNamespace, osaScript, appIcon, notificationSound ):
             selectedDNS = sorted(self.responseTimes, key=self.responseTimes.get, reverse=False)[0]
             if ( selectedDNS is not self.currentPreferredDNS ):
-                print "Fasted DNS is "+ selectedDNS +" with response time "+str(responseTimes[selectedDNS])+" secs"
+                print "Fasted DNS is "+ selectedDNS +" with response time "+str(self.responseTimes[selectedDNS])+" secs"
                 os.system("/usr/bin/su "+username+" -c '"+reattachToUserNamespace+" "+osaScript+" -message \"Active DNS changed to "+selectedDNS+"\" -title \"DNS Boost\" -appIcon "+appIcon+" -sound "+notificationSound+"'")
                 return True
             else:

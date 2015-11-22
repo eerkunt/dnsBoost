@@ -34,11 +34,11 @@ logFile = "/Library/Application Support/dnsBoost/dnsBoost.log"                  
     Do not change anything below unless you know what you are doing
 '''
 
-logging.basicConfig(filename=logFile, filemode='w', level=logging.INFO, format='%(asctime)s [%(name)s] %(levelname)s: %(message)s')
+logging.basicConfig(filename=logFile, filemode='a', level=logging.INFO, format='%(asctime)s [%(name)s] %(levelname)s: %(message)s')
 dnsObj = customDNS.DNS( "/etc/resolv.conf", dbFile, 1.0 )
 dnsObj.sweepDnsServers( queryList )
 dnsObj.updateScores()
-dnsObj.currentPreferredDNS = dnsObj.findTheBestScore()
+dnsObj.findTheBestScore()
 
 if ( dnsObj.notifyLoggedInUser(username, reattachToUserNamespace, osaScript, appIcon, notificationSound) is True ):
     logging.info(str(dnsObj.currentPreferredDNS)+" become the fastest DNS!")
