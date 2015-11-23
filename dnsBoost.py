@@ -41,7 +41,7 @@ dnsObj.updateScores()
 fastestDNS = dnsObj.findTheBestScore()
 
 if ( dnsObj.notifyLoggedInUser(username, reattachToUserNamespace, osaScript, appIcon, notificationSound) is True ):
-    logging.info(str(fastestDNS+" become the fastest DNS!")
+    logging.info(str(fastestDNS)+" become the fastest DNS!")
     dnsObj.makeSystemWideChanges(networkSetup,serviceName)
 else:
     logging.info(str(dnsObj.currentPreferredDNS)+" is still the fastest DNS!")
